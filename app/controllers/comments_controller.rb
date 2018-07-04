@@ -4,10 +4,11 @@ class CommentsController < ApplicationController
   before_action :authorize_comment , only: [:destroy]
   
   def create
+  	
   	comment = Comment.create(content: params[:comment][:content] , user_id: current_user.id , post_id: params[:comment][:post_id])
   	redirect_to root_path
   end
-post = Post.create(content: params[:post][:content] , user_id: current_user.id)
+
   def destroy
   	@comment.destroy
 

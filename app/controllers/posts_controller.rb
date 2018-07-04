@@ -5,6 +5,10 @@ class PostsController < ApplicationController
   def home
   	@post = Post.new
   	@posts = Post.all
+
+  	@comment = Comment.new
+
+  	
   end
 
   def create
