@@ -1,0 +1,47 @@
+<main>
+	
+	<div>Group Links</div>
+
+	<div>
+		<div>
+			<% if user_signed_in? %>
+				<%= form_for @post do |f| %>
+
+					<%= f.label :content %>
+					<%= f.text_area :content %>
+					<%= f.submit %>
+				<% end %>
+			<% end %>
+
+		</div>
+
+
+		<ul>
+			
+			<% @posts.reverse.each do |p| %>
+				<p><%= p.content %>></p>
+				<p><%= p.user.email %></p>
+				<% if user_signed_in? %>
+					<% if current_user.id ==p.user_id %>
+						<p><%= link_to "Delete" , destroy_post_path(p.id) , method: :delete %></p>
+					<% end %>
+				<% end %>
+			<% end %>
+
+
+
+
+
+		</ul>
+		
+	</div>
+
+
+
+
+
+
+
+
+
+</main>
