@@ -10,13 +10,15 @@
   </head>
 
   <body>
-    <div>
+    <div id="common-header">
 
-      <div>
+      <div class="logo">
         
         <img width="45"src="https://www.pidl.org/site-assets/images/social-inside-facebook-icon.png/@@images/3fd38cd7-73e4-4371-9937-7a19c59d46e7.png">
 
-    
+      </div>
+
+      <div id="sign">
         <% if user_signed_in? %>
 
           <p><%= current_user.email %></p>

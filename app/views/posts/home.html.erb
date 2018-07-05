@@ -1,9 +1,9 @@
-<main>
+<main class="posts-home">
 	
 	<div>Group Links</div>
 
-	<div>
-		<div>
+	<div id="deewar">
+		<div >
 			<% if user_signed_in? %>
 				<%= form_for @post do |f| %>
 
@@ -13,7 +13,7 @@
 				<% end %>
 			<% end %>
 
-		</div>
+		</div >
 
 
 		<ul>
@@ -48,6 +48,13 @@
 								
 								<p><%= comment.content %></p>
 								<sub><%= comment.user.email %></sub>
+
+								<% if user_signed_in? %>
+									<% if current_user.id == comment.user_id %>
+
+										<%= link_to "Delete" , destroy_comment_path(comment.id) , method: :delete %>
+									<% end %>
+								<% end %>
 
 
 							</li>
